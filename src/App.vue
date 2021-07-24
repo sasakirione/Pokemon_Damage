@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <pokemon_header></pokemon_header>
+    <router-view></router-view>
+    <pokemon_footer></pokemon_footer>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import pokemon_header from './components/pokemon-header.vue';
+import pokemon_footer from './components/pokemon_footer.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    pokemon_header,
+    pokemon_footer
   },
 })
 export default class App extends Vue {}
