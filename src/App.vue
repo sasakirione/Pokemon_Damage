@@ -1,15 +1,17 @@
 <template>
-  <div id="app">
-    <pokemon_header></pokemon_header>
-    <router-view></router-view>
-    <pokemon_footer></pokemon_footer>
+  <div>
+    <v-app>
+      <pokemon_header></pokemon_header>
+      <router-view/>
+      <pokemon_footer></pokemon_footer>
+    </v-app>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import pokemon_header from './components/pokemon-header.vue';
-import pokemon_footer from './components/pokemon_footer.vue';
+import {Component, Vue} from 'vue-property-decorator';
+import pokemon_header from '@/components/pokemon_header.vue';
+import pokemon_footer from '@/components/pokemon_footer.vue';
 
 @Component({
   components: {
@@ -17,7 +19,8 @@ import pokemon_footer from './components/pokemon_footer.vue';
     pokemon_footer
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+}
 </script>
 
 <style>

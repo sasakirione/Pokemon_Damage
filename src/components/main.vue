@@ -1,7 +1,7 @@
 <template>
-<v-app>
-
-</v-app>
+<div>
+ おたくおたくおたく
+</div>
 </template>
 
 <script>
