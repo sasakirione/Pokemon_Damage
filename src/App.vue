@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="app">
     <v-app>
       <pokemon_header></pokemon_header>
-      <router-view/>
+      <router-view></router-view>
       <pokemon_footer></pokemon_footer>
     </v-app>
   </div>
