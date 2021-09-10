@@ -15,24 +15,8 @@ export default class Pokemon_defense extends Pokemon_common{
     private _defense_b_real: number;
     private _defense_d_real: number;
 
-    constructor(id: number,form: number) {
+    constructor() {
         super();
-        axios
-            .get('https://api.sasakirione.com/pokemon-test/pokemonDec?id='+id+'&form='+form)
-            .then(response => (
-                this._name = response.data.Items[0].NAME,
-                this._type = response.data.Items[0].TYPE,
-                this._ability = response.data.Items[0].ABILITY,
-                this._defense_h_base = response.data.Items[0].BASE.H,
-                this._defense_b_base = response.data.Items[0].BASE.B,
-                this._defense_d_base = response.data.Items[0].BASE.D
-            ))
-            .catch(error => {
-                console.log(error)
-            })
-            this.defense_h_ev = 0
-            this.defense_b_ev = 0
-            this.defense_d_ev = 0
     }
 
     set defense_h_ev(ev:number){
@@ -84,5 +68,24 @@ export default class Pokemon_defense extends Pokemon_common{
 
     get ability(){
         return this._ability
+    }
+
+    async pokemon_set(id:number, form:number) {
+        await axios
+            .get('https://api.sasakirione.com/pokemon-test/pokemonDec?id='+id+'&form='+form)
+            .then(response => (
+                this._name = response.data.Items[0].NAME,
+                    this._type = response.data.Items[0].TYPE,
+                    this._ability = response.data.Items[0].ABILITY,
+                    this._defense_h_base = response.data.Items[0].BASE.H,
+                    this._defense_b_base = response.data.Items[0].BASE.B,
+                    this._defense_d_base = response.data.Items[0].BASE.D
+            ))
+            .catch(error => {
+                console.log(error)
+            })
+        this.defense_h_ev = 0
+        this.defense_b_ev = 0
+        this.defense_d_ev = 0
     }
 }
